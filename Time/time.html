@@ -1,3 +1,5 @@
+<!-- Made by kadin, kadincool.github.io -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +14,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+      }
+      a {
+        color: white;
+        text-decoration: none;
       }
     </style>
   </head>
@@ -31,9 +37,35 @@ var inRadius = outRadius * (1 / 3);
 
 var date;
 
-secondCols = ["#ffbf00", "#ffff00"];
-minuteCols = ["#ff0000", "#00ff00"];
-hourCols = ["#00ffff", "#ffff00"];
+//color gradients to stop it from looking flat
+var second1 = can2d.createLinearGradient(clockX - outRadius, clockY - outRadius, clockX + outRadius, clockY + outRadius);
+second1.addColorStop(0, "#ffbf00");
+second1.addColorStop(1, "#ff7f00");
+
+var second2 = can2d.createLinearGradient(clockX - outRadius, clockY - outRadius, clockX + outRadius, clockY + outRadius);
+second2.addColorStop(0, "#ffff00");
+second2.addColorStop(1, "#ffbf00");
+
+var minute1 = can2d.createLinearGradient(clockX - midRadius, clockY - midRadius, clockX + midRadius, clockY + midRadius);
+minute1.addColorStop(0, "#ff3f00");
+minute1.addColorStop(1, "#bf0000");
+
+var minute2 = can2d.createLinearGradient(clockX - midRadius, clockY - midRadius, clockX + midRadius, clockY + midRadius);
+minute2.addColorStop(0, "#00ff00");
+minute2.addColorStop(1, "#00bf00");
+
+var hour1 = can2d.createLinearGradient(clockX - inRadius, clockY - inRadius, clockX + inRadius, clockY + inRadius);
+hour1.addColorStop(0, "#00ffff");
+hour1.addColorStop(1, "#00bfff");
+
+var hour2 = can2d.createLinearGradient(clockX - inRadius, clockY - inRadius, clockX + inRadius, clockY + inRadius);
+hour2.addColorStop(0, "#ffff00");
+hour2.addColorStop(1, "#ffbf00");
+
+
+secondCols = [second1, second2];
+minuteCols = [minute1, minute2];
+hourCols = [hour1, hour2];
 
 function frame() {
   // date = new Date(0);
